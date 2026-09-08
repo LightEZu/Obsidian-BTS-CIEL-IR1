@@ -1,0 +1,1 @@
+Email Absence : absence.diderot@monlycee.net
