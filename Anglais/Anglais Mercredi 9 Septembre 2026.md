@@ -21,4 +21,5 @@ Workplace Discriminations
 - Discriminations based on your sexual orientation $\Rrightarrow$ Homophobia
 - Discriminations based on nationality/citizenship $\Rrightarrow$ Xenophobia
 - Discriminations based on your age $\Rrightarrow$ Ageism
+- Discriminations based on pregnancy 
 
