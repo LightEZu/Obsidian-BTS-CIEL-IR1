@@ -379,4 +379,7 @@ export default [
 		priority: 2,
 		description: "Bloc mathématique dans une liste"
 	},
+
+	// Snippet de test : vérifie si Obsidian/LaTeX Suite reçoit bien Shift-Tab
+	{trigger: "", replacement: "", options: "tA", triggerKey: "Shift-Tab", description: "Test détection Shift-Tab"},
 ]
