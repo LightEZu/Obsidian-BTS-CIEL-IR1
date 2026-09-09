@@ -45,7 +45,8 @@ export default [
     // Opérations de base
     {trigger: "carr", replacement: "^{2}", options: "mA"},
 	{trigger: "cub", replacement: "^{3}", options: "mA"},
-	{trigger: "rd", replacement: "^{$0}$1", options: "mA"},
+	{trigger: "pui", replacement: "^{$0}$1", options: "mA"},
+	{trigger: "Ddroite", replacement: "\Rrightarrow", options: "mA"},
 	{trigger: "_", replacement: "_{$0}$1", options: "mA"},
 	{trigger: "sts", replacement: "_\\text{$0}", options: "mA"},
 	{trigger: "rac", replacement: "\\sqrt{ $0 }$1", options: "mA"},
