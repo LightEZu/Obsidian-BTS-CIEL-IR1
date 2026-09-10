@@ -46,7 +46,8 @@ export default [
     {trigger: "carr", replacement: "^{2}", options: "mA"},
 	{trigger: "cub", replacement: "^{3}", options: "mA"},
 	{trigger: "pui", replacement: "^{$0}$1", options: "mA"},
-	{trigger: "Ddroite", replacement: "\Rrightarrow", options: "mA"},
+	{trigger: "Ddroite", replacement: "\\Rrightarrow", options: "mA"},
+	{trigger: "pasegal", replacement: "\\neq", options: "mA"},
 	{trigger: "_", replacement: "_{$0}$1", options: "mA"},
 	{trigger: "sts", replacement: "_\\text{$0}", options: "mA"},
 	{trigger: "rac", replacement: "\\sqrt{ $0 }$1", options: "mA"},
@@ -282,12 +283,7 @@ export default [
 	{trigger: "brk", replacement: "\\braket{ $0 | $1 } $2", options: "mA"},
     {trigger: "exter", replacement: "\\ket{${0:\\psi}} \\bra{${0:\\psi}} $1", options: "mA"},
 
-    // Chimie
-	{trigger: "pu", replacement: "\\pu{ $0 }", options: "mA"},
-	{trigger: "cee", replacement: "\\ce{ $0 }", options: "mA"},
-	{trigger: "he4", replacement: "{}^{4}_{2}He ", options: "mA"},
-	{trigger: "he3", replacement: "{}^{3}_{2}He ", options: "mA"},
-	{trigger: "iso", replacement: "{}^{${0:4}}_{${1:2}}${2:He}", options: "mA"},
+
 
     // Environnements
     {
@@ -380,7 +376,4 @@ export default [
 		priority: 2,
 		description: "Bloc mathématique dans une liste"
 	},
-
-	// Snippet de test : vérifie si Obsidian/LaTeX Suite reçoit bien Shift-Tab
-	{trigger: "", replacement: "", options: "tA", triggerKey: "Shift-Tab", description: "Test détection Shift-Tab"},
 ]
