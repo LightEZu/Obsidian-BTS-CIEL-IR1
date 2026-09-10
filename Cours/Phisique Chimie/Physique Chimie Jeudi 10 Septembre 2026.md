@@ -9,3 +9,4 @@ $$\begin{align}
 U_{ab} = V_{a} - V_{b}\\
 V_{a} = V_{b} + u_{ab}
 \end{align}$$
+$$P= (r*I)*I=r*I^{2} = 1,5*3^{2}=13,5W$$
