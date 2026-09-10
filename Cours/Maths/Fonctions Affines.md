@@ -15,3 +15,6 @@ B (0;2) \in f
 \end{aligned}
 $$
 
+Exemple de Fonction affine en Physique
+$$F(x)=1,8x+32$$
+C'est la formule pour convertir les °C en °F
