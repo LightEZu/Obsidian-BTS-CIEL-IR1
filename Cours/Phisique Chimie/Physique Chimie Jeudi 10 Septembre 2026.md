@@ -20,3 +20,7 @@ $$\begin{align*}
 \end{align*}
 $$
 
+$$\begin{align}
+&U = 12V, R = 470 \omega \\
+& I = \frac{U}{R} = \frac{12}{470} = 0,0255 A (\approx 25,5mA)
+\end{align}$$
