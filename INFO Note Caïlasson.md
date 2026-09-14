@@ -10,4 +10,16 @@ CLI = Command line interface
 
 La puissance du CPU se note en Hz
 
+RAM $\neq$ ROM
 
+RAM = Random Access Memory
+ROM = Read Only Memory
+
+
+B majuscule = Bytes  (octet en fr)
+b miniscule = bits
+notebookcheck
+
+HPC = High Performance Computing
+
+CPU avec GPU intégré = APU 
