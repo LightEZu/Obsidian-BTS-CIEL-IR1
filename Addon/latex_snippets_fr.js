@@ -47,6 +47,7 @@ export default [
 	{trigger: "cub", replacement: "^{3}", options: "mA"},
 	{trigger: "pui", replacement: "^{$0}$1", options: "mA"},
 	{trigger: "Ddroite", replacement: "\\Rrightarrow", options: "mA"},
+	{trigger: "Ggauche", replacement: "\\Lleftarrow", options: "mA"},
 	{trigger: "pasegal", replacement: "\\neq", options: "mA"},
 	{trigger: "_", replacement: "_{$0}$1", options: "mA"},
 	{trigger: "sts", replacement: "_\\text{$0}", options: "mA"},
