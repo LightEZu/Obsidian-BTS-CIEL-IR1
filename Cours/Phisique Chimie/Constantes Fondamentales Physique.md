@@ -1,11 +1,9 @@
 ---
 tags:
-  - physique
-  - chimie
-  - MP
-  - constantes
-  - ordres-de-grandeur
-  - prepa
+  - Physique
+  - Chimie
+  - Fiche_Révision
+  - BTS
 ---
 
 # Constantes fondamentales et ordres de grandeur à connaître
@@ -77,14 +75,14 @@ $$
 
 ### c) Optique
 
-| Grandeur | Valeur |
-|---|---|
-| Pouvoir de résolution angulaire de l'œil | $1' \approx 0{,}02^\circ \approx 3 \times 10^{-4} \ \text{rad}$ |
-| Plage d'accommodation de l'œil emmétrope (normal) | $PP \approx 25 \ \text{cm}$ ; $PR = \infty$ |
-| Longueur de cohérence d'une DEL (QI) | $\ell_c \approx 1 \ \mu\text{m}$ |
-| Longueur de cohérence d'un laser | $\ell_c \approx 100 \ \text{m}$ |
-| Temps de réponse de l'œil | $\approx 0{,}1 \ \text{s}$ |
-| Temps de réponse d'une photodiode | $\approx 1 \ \mu\text{s}$ |
+| Grandeur                                          | Valeur                                                          |
+| ------------------------------------------------- | --------------------------------------------------------------- |
+| Pouvoir de résolution angulaire de l'œil          | $1' \approx 0{,}02^\circ \approx 3 \times 10^{-4} \ \text{rad}$ |
+| Plage d'accommodation de l'œil emmétrope (normal) | $PP \approx 25 \ \text{cm}$ ; $PR = \infty$                     |
+| Longueur de cohérence d'une DEL (QI)              | $\ell_c \approx 1 \ \mu\text{m}$                                |
+| Longueur de cohérence d'un laser                  | $\ell_c \approx 100 \ \text{m}$                                 |
+| Temps de réponse de l'œil                         | $\approx 0{,}1 \ \text{s}$                                      |
+| Temps de réponse d'une photodiode                 | $\approx 1 \ \mu\text{s}$                                       |
 
 **Cercle chromatique** — longueurs d'onde typiques :
 - Violet $\approx 400 \ \text{nm}$

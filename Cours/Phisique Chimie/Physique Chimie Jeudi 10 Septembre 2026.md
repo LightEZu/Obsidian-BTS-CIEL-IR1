@@ -1,3 +1,11 @@
+---
+tags:
+  - Physique
+  - Notes
+  - BTS
+Date: <% tp.file.creation_date() %>
+---
+
 $$
 \begin{align*}
 &i = \frac{dq}{dt} = q'(t) = A \\

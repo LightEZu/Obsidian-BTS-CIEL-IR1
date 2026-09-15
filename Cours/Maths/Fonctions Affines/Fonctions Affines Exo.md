@@ -1,3 +1,12 @@
+---
+tags:
+  - Maths
+  - Fonctions
+  - Exercice
+  - BTS
+Source: Lycée Diderot - Paul Léo
+---
+
 Exo 3 :
 
 1. $f$ est affine, $f(1) = 2$ et $f(4)=8$ 
@@ -125,4 +134,7 @@ $g(x)=-0,5x+4,5$
 on résous l'équation $g(x)=11$
 on obtient $\frac{6,5}{0,5}$ 
 Exo 8
+
+> [!quote] Source
+> Lycée Diderot BTS CIEL IR - Document fait par Paul Léo
 

@@ -1,3 +1,12 @@
+---
+tags:
+  - Maths
+  - Fonctions
+  - Cours
+  - BTS
+Source: Lycée Diderot - Paul Léo
+---
+
 Pout tout $x$ dans $\mathbb{R}$, $f(x) =ax+b$ 
 $a\in \mathbb{R}\text{ }b\in \mathbb{R}$ 
 $f$ est alors représenté par la droite d'équation $y=ax+b$ 
@@ -60,3 +69,6 @@ x & -\infty & & -\frac{2}{3} & & +\infty \\
 3x + 2 & & - & 0 & + & 
 \end{array}
 $$
+
+> [!quote] Source
+> Lycée Diderot BTS CIEL IR - Document fait par Paul Léo

@@ -1,3 +1,11 @@
+---
+tags:
+  - Maths
+  - Fonctions
+  - Notes
+  - BTS
+Source: Lycée Diderot - Paul Léo
+---
 
 Une fonction affine est représenté sous la forme $f(x) = ax+b$ 
 
