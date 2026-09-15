@@ -1,3 +1,11 @@
+---
+tags:
+  - ETLV
+  - Cours
+  - BTS
+Date: 11/09/2026 15:18
+Source: Lycée Diderot - Paul Léo
+---
 
 Case n°1 $\Rrightarrow$ It's a cybercrime, It's called **phising**, The cybercrimial had some personal info from databse and hetakes the identity of the CEO
 

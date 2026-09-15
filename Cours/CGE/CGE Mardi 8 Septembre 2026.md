@@ -1,3 +1,11 @@
+---
+tags:
+  - CGE
+  - Notes
+  - BTS
+Date: 08/09/2026 16:35
+Source: Lycée Diderot - Paul Léo
+---
 Bloc de 3heures pour préparer potentiellement au second semestre des épreuves blanches.
 
 Sortie possible et déja une de prévue Mardi 15 Septembre

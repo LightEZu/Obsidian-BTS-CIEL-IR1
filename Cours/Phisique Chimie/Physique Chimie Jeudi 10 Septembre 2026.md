@@ -3,8 +3,10 @@ tags:
   - Physique
   - Notes
   - BTS
-Date: <% tp.file.creation_date() %>
+Date: 10/09/2026 17:48
+Source: Lycée Diderot - Paul Léo
 ---
+
 
 $$
 \begin{align*}

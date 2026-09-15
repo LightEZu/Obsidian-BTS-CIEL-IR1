@@ -4,6 +4,8 @@ tags:
   - Chimie
   - Fiche_Révision
   - BTS
+Date: 15/09/2026 16:55
+Source: Lycée Diderot - Paul Léo
 ---
 
 # Constantes fondamentales et ordres de grandeur à connaître

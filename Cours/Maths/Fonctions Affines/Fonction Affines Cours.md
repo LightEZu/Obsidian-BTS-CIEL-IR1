@@ -4,6 +4,7 @@ tags:
   - Fonctions
   - Cours
   - BTS
+Date: 15/09/2026 16:55
 Source: Lycée Diderot - Paul Léo
 ---
 
