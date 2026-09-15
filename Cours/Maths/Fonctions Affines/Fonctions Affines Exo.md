@@ -45,7 +45,7 @@ pour trouver on peut appliquer la formule mais la formule nous donne le résulta
 $f(0)=-1$
 
 Exo 5
-							$f(x) =2x+5$ 
+$f(x) =2x+5$ 
 $$
 \begin{array}{c|ccccc}
 x & -\infty & & +\infty \\
@@ -53,7 +53,7 @@ x & -\infty & & +\infty \\
 f(x) & & \nearrow
 \end{array}
 $$
-							$g(x)-3x-2$ 
+$g(x)-3x-2$ 
 $$
 \begin{array}{c|ccccc}
 x & -\infty & & +\infty \\
@@ -61,7 +61,7 @@ x & -\infty & & +\infty \\
 f(x) & & \searrow
 \end{array}
 $$
-							$i(x)=5$ 
+$i(x)=5$ 
 $$
 \begin{array}{c|ccccc}
 x & -\infty & & +\infty \\
@@ -125,4 +125,4 @@ $g(x)=-0,5x+4,5$
 on résous l'équation $g(x)=11$
 on obtient $\frac{6,5}{0,5}$ 
 Exo 8
-![[exo 8 maths fonctions affine.jpeg]]
+
