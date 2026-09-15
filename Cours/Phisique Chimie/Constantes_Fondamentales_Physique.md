@@ -1,6 +1,11 @@
 ---
-tags: [physique, chimie, MP, constantes, ordres-de-grandeur, prepa]
-source: Lycée Jean Bart - Physique-Chimie MP
+tags:
+  - physique
+  - chimie
+  - MP
+  - constantes
+  - ordres-de-grandeur
+  - prepa
 ---
 
 # Constantes fondamentales et ordres de grandeur à connaître
@@ -189,10 +194,10 @@ $$
 
 ## 6. Puissances de 10
 
-| Préfixe | atto | femto | pico | nano | micro | milli | centi | déci | — | déca | hecto | kilo | méga | giga | téra | péta | exa |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| Symbole | a | f | p | n | $\mu$ | m | c | d | | da | h | k | M | G | T | P | E |
-| Puissance | $10^{-18}$ | $10^{-15}$ | $10^{-12}$ | $10^{-9}$ | $10^{-6}$ | $10^{-3}$ | $10^{-2}$ | $10^{-1}$ | | $10^{1}$ | $10^{2}$ | $10^{3}$ | $10^{6}$ | $10^{9}$ | $10^{12}$ | $10^{15}$ | $10^{18}$ |
+| Préfixe   | atto       | femto      | pico       | nano      | micro     | milli     | centi     | déci      | —   | déca     | hecto    | kilo     | méga     | giga     | téra      | péta      | exa       |
+| --------- | ---------- | ---------- | ---------- | --------- | --------- | --------- | --------- | --------- | --- | -------- | -------- | -------- | -------- | -------- | --------- | --------- | --------- |
+| Symbole   | a          | f          | p          | n         | $\mu$     | m         | c         | d         |     | da       | h        | k        | M        | G        | T         | P         | E         |
+| Puissance | $10^{-18}$ | $10^{-15}$ | $10^{-12}$ | $10^{-9}$ | $10^{-6}$ | $10^{-3}$ | $10^{-2}$ | $10^{-1}$ |     | $10^{1}$ | $10^{2}$ | $10^{3}$ | $10^{6}$ | $10^{9}$ | $10^{12}$ | $10^{15}$ | $10^{18}$ |
 
 ---
 
