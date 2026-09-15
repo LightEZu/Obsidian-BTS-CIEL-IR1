@@ -1,0 +1,643 @@
+/* ─────────────────────────────────────────────
+   Tokens del MARCO (contenedor, panel, botones, menús)
+
+   Todos derivan de las variables de Obsidian, así que el bloque encaja con CUALQUIER
+   tema —también los de la comunidad— sin que tengamos que mantener una paleta por cada
+   uno. Antes el marco era `#1e1e1e` fijo y no fijaba color de texto: en tema claro la
+   fórmula heredaba `--text-normal` (casi negro) sobre panel casi negro y quedaba
+   ilegible, y el bloque era una isla oscura en mitad de una nota blanca.
+
+   La TINTA del plano (rejilla, ejes, curvas) NO está aquí: es paleta propia en dos
+   versiones, porque necesita contraste garantizado entre capas y ninguna variable de
+   tema lo promete. Ver `src/core/rendering/paleta.ts`.
+
+   Las dos declaraciones seguidas de los tokens "-activo" son un respaldo deliberado:
+   si `color-mix` no está disponible, queda la primera (plana pero válida).
+   ───────────────────────────────────────────── */
+.lmath-container {
+  --lmath-superficie: var(--background-primary);
+  /* Material de los PANELES: el del bloque (con la fórmula), el cuadro ⓘ, el menú y la tarjeta
+     flotante del móvil. Va del fondo de la NOTA, no del secundario del tema.
+
+     Con el secundario, el panel era la barra lateral y el plano la nota, y en los temas donde
+     el secundario es MÁS CLARO que el primario —el Obsidian oscuro de fábrica lo es— el bloque
+     salía como un rectángulo gris claro alrededor de un plano oscuro. Con el primario, el
+     panel y el plano son la misma materia que la nota que los rodea, que es lo que el bloque
+     quiere parecer: una figura DENTRO del texto, no una ventana pegada encima.
+     `--lmath-superficie` apunta a lo mismo a propósito; lo que separa las dos mitades es la
+     línea de `.lmath-grafica`, no un cambio de color.
+     Nada se pierde por el camino: todo lo que FLOTA sobre el plano (cuadro ⓘ, menú, tarjeta)
+     lleva su `border` y su `box-shadow`, y el propio bloque lleva borde y esquinas redondeadas,
+     así que ninguno depende de este color para verse. Y el contraste del texto pasa a ser el
+     par que el tema ya garantiza legible, `--text-normal` sobre `--background-primary`.
+
+     Encima de ese fondo de nota lleva un LEVANTE corto: lo justo para que el hueco alrededor de
+     la tarjeta se despegue de ella y del plano, sin volver al gris de barra lateral del que se
+     vino huyendo. Se levanta hacia `--text-normal` —no hacia el blanco— porque así el gesto es
+     el mismo en los dos temas: acercar el fondo a la tinta es «separarse del fondo» tanto si la
+     tinta es clara como si es oscura, y en claro esto da un gris de panel en vez de no hacer
+     nada. Es el mismo recurso que usan los tokens "-activo" de más abajo.
+     El 5% es el mando: con el `#1e1e1e` del Obsidian oscuro deja el hueco en `#272727`, un
+     escalón que se ve contra la tarjeta (`#181818`) sin llamar la atención por su cuenta. */
+  --lmath-panel: var(--background-primary);
+  --lmath-panel: color-mix(in srgb, var(--background-primary) 95%, var(--text-normal));
+  /* TARJETA: la caja de la fórmula y el cuadro ⓘ, que son los dos objetos que se posan SOBRE
+     el panel y tienen que leerse como una capa aparte. Por debajo de él.
+
+     Se mide contra el fondo de la NOTA y no contra `--lmath-panel`, que es lo que parecería
+     natural. A propósito: el panel lleva su propio levante, y encadenar los dos cálculos haría
+     que subir el hueco alrededor de la tarjeta subiera TAMBIÉN la tarjeta, con lo que el mando
+     de arriba no separaría nada —los dos se moverían juntos y la distancia entre ellos sería
+     la misma—. Anclados los dos al mismo sitio, cada mando mueve una sola capa y la distancia
+     entre ambas es la suma de los dos: hoy `#272727` el hueco contra `#181818` la tarjeta.
+
+     El escalón se hace con `color-mix` hacia el negro y no apuntando a otra variable del tema
+     porque ninguna sirve: `--background-secondary` es más CLARA que la primaria en unos temas
+     y más oscura en otros, así que la tarjeta salía hundida o levantada según quién mirase. El
+     negro aquí no es un color del diseño —no fija ningún tono contra el tema, igual que
+     `--lmath-velo`—: es la operación «oscurece esto un poco», y el resultado sigue siendo el
+     color del tema. En un tema claro el mismo cálculo da la tarjeta gris sobre el fondo
+     blanco, que es lo que una tarjeta hace ahí.
+
+     Ese 80% es el ÚNICO mando: bajarlo hunde más la tarjeta, subirlo la acerca al panel. Está
+     donde está porque el margen es estrecho en oscuro —el fondo del Obsidian de fábrica es
+     `#1e1e1e`, así que un 95% movería la tarjeta un solo nivel de gris y no se vería—; con un
+     80% baja a `#181818`, que ya se lee como una capa aparte sin llegar a mancha negra.
+     La primera declaración es el respaldo si `color-mix` no está disponible (mismo patrón que
+     los tokens "-activo" de abajo): plana, pero válida. */
+  --lmath-tarjeta: var(--background-primary);
+  --lmath-tarjeta: color-mix(in srgb, var(--background-primary) 80%, black);
+  --lmath-borde: var(--background-modifier-border);
+  --lmath-texto: var(--text-normal);
+  --lmath-texto-tenue: var(--text-muted);
+  --lmath-texto-apagado: var(--text-faint);
+  /* Avisos del bloque (una opción mal escrita, un ángulo ilegible). Es cromo, así que sigue
+     al tema como el resto del marco; se separa de `--lmath-texto-tenue` porque un aviso que
+     se lee igual que el texto secundario no avisa de nada. */
+  --lmath-aviso: var(--text-warning);
+  /* Chip flotante (inicio, zoom, ⓘ) y botones de la barra del panel. Se posan SOBRE el
+     plano, cuya superficie es `--background-primary`; usar la secundaria los despega. */
+  --lmath-chip: var(--background-secondary);
+  --lmath-chip-activo: var(--background-secondary);
+  --lmath-chip-activo: color-mix(in srgb, var(--text-normal) 12%, var(--background-secondary));
+  --lmath-borde-activo: var(--background-modifier-border);
+  --lmath-borde-activo: color-mix(in srgb, var(--text-normal) 24%, var(--background-modifier-border));
+  /* Velo de bloque degenerado: atenúa el plano sin fijar color de tema. */
+  --lmath-velo: rgba(0, 0, 0, 0.55);
+  /* Acento ÁMBAR del carril y del ⓘ: es estado del plano, no cromo, así que es nuestro
+     (identidad del plugin) y lleva variante clara, como la tinta. */
+  --lmath-acento: rgba(255, 170, 60, 0.95);
+  --lmath-acento-suave: rgba(255, 200, 130, 0.95);
+  --lmath-acento-borde: rgba(255, 160, 40, 0.5);
+  --lmath-acento-contraste: rgba(20, 20, 20, 0.95);
+  --lmath-sombra: var(--shadow-s, 0 2px 6px rgba(0, 0, 0, 0.35));
+  --lmath-sombra-flotante: var(--shadow-l, 0 4px 12px rgba(0, 0, 0, 0.4));
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* Ancla del panel de la fórmula cuando el bloque es ESTRECHO: ahí el panel sale del flujo
+     (`position:absolute`) y flota sobre el plano, con lo que el plano —que ya pide
+     `width:100%`— se queda la fila entero. Ver `Reparto` en MotorExperimental.ts. */
+  position: relative;
+  background-color: var(--lmath-panel);
+  /* El panel de la fórmula heredaba el color de texto del tema sobre un fondo fijo
+     oscuro. Fijarlo aquí ata las dos mitades del contraste al MISMO par de variables. */
+  color: var(--lmath-texto);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--lmath-borde);
+  min-height: 261px;
+  margin: 16px;
+}
+
+/* Bloque ESTRECHO (teléfono en vertical, panel lateral angosto): el alto lo manda el plano,
+   que lo deriva de su ancho. El mínimo de 261 dejaría una franja de panel vacía por debajo
+   en cuanto el bloque fuese más estrecho que ~318px. */
+.lmath-container.lmath-estrecho {
+  min-height: 0;
+}
+
+/* Sin fórmula a la izquierda no hay nada que separar: ese borde era la costura entre las dos
+   columnas y suelto se lee como una raya pegada al margen. */
+.lmath-container.lmath-estrecho .lmath-grafica {
+  border-left: 0;
+}
+
+/* MODO FÓRMULA (solo en bloque estrecho): el bloque enseña la fórmula EN VEZ DEL PLANO, no
+   encima de él. El panel ya cubre la caja entera; esto apaga lo que hay debajo para que ni un
+   chip asome, ni pueda pulsarse a través, ni lo lea un lector de pantalla como si estuviera ahí.
+
+   `visibility` y no `display`: apagar el lienzo con `display:none` lo dejaría en 0×0, el
+   ResizeObserver lo remediría y la cámara recalcularía su encuadre por el aspecto — volver al
+   plano devolvería OTRA vista. Con `visibility` la caja no se mueve, así que ir y venir entre
+   los dos modos conserva el zoom y el encuadre exactos.
+
+   Es una regla y no una lista de elementos escondidos a mano desde el código: un chip que se
+   añada mañana nace apagado, en vez de aparecer flotando sobre la fórmula. Lo que quiera
+   sobrevivir tiene que decirlo (`lmath-sobre-panel`), que hoy son dos: el botón que devuelve al
+   plano y el ✎ que lleva al código. */
+.lmath-grafica.lmath-modo-formula > * {
+  visibility: hidden;
+}
+
+.lmath-grafica.lmath-modo-formula > .lmath-sobre-panel {
+  visibility: visible;
+}
+
+/* Y la franja de controles de `obs-trig`, que vive DENTRO del plano en estrecho pero no es
+   contenido suyo: es el mando del bloque (las tres casillas, la lectura de θ y el
+   deslizador). Sigue a la vista con la fórmula delante, igual que los chips marcados arriba.
+
+   Va como regla propia y no añadiéndole `lmath-sobre-panel` porque no está SOBRE el panel: está
+   debajo, en la franja que el panel deja libre al respetar `huecoInferior`. Compartir la clase
+   habría hecho que el nombre dejara de describir a sus dos usuarios. */
+.lmath-grafica.lmath-modo-formula > .lmath-trig-controles-pie {
+  visibility: visible;
+}
+
+/* Bloque SIN PLANO (un obs-vector que solo escribe: campos, notación suelta): el panel es el
+   bloque entero y su alto lo pone el número de tarjetas, así que el mínimo de 261 sobra —con
+   una sola tarjeta dejaría una franja vacía por debajo—. El `min-height` es lo único que se
+   suelta: el resto del marco (fondo, borde, radio, márgenes) es el mismo, que es justo lo que
+   hace que se lea como un bloque de LMath y no como una fórmula suelta. */
+/* Velo de `obs-vector` cuando no hay ninguna flecha que dibujar: la misma capa oscurecida y el
+   mismo mensaje centrado que usa obs-graph para sus bloques degenerados, aquí como reglas de la
+   hoja (obs-graph lo escribe en línea porque su velo nace dentro de un camino más enredado).
+   `pointer-events:none` en las dos capas: el velo explica, no bloquea. */
+.lmath-velo-vector {
+  position: absolute;
+  inset: 0;
+  z-index: var(--lmath-velo-z, 4);
+  background: var(--lmath-velo);
+  pointer-events: none;
+}
+
+.lmath-velo-mensaje {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 24px;
+  box-sizing: border-box;
+  text-align: center;
+  pointer-events: none;
+}
+
+.lmath-velo-titulo {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--lmath-texto);
+}
+
+.lmath-velo-detalle {
+  font-size: 12px;
+  line-height: 1.4;
+  max-width: 320px;
+  color: var(--lmath-texto-tenue);
+}
+
+.theme-light .lmath-container {
+  --lmath-velo: rgba(255, 255, 255, 0.62);
+  /* Mismo ámbar que la tinta del plano en claro (`paleta.ts`): 5,25:1 sobre blanco, y
+     con texto blanco encima cuando va relleno. */
+  --lmath-acento: #a8560a;
+  --lmath-acento-suave: #a8560a;
+  --lmath-acento-borde: rgba(194, 98, 10, 0.45);
+  --lmath-acento-contraste: #ffffff;
+}
+
+.lmath-container .lmath-latex {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  box-sizing: border-box;
+  /* `font-size` fija la base desde la que MathJax escala la fórmula. No lleva
+     !important: una declaración directa sobre el elemento gana a la herencia,
+     y el prefijo `.lmath-container` sube la especificidad por si Obsidian fija
+     un tamaño en un ancestro con selector de una sola clase. */
+  font-size: 24px;
+  /* La fórmula es de solo lectura: mostramos el cursor normal (flecha) en vez
+     del I-beam de texto que el navegador pone por defecto sobre el texto
+     seleccionable de KaTeX. `cursor` se hereda, así que fijarlo aquí cubre todo
+     el árbol de KaTeX y los TRES bloques (obs-graph, obs-system, obs-derivate),
+     que comparten esta clase de panel, más cualquier bloque futuro que la use. */
+  cursor: default;
+}
+
+.lmath-container .lmath-latex .katex {
+  font-size: 1.6em;
+}
+
+/* Obsidian envuelve las matemáticas de bloque ($$…$$) en un elemento con su
+   propio overflow-x:auto + max-width:100%, que mostraba una barra de scroll
+   NATIVA (con flechas) redundante incluso cuando la fórmula cabe de sobra. Se
+   notaba sólo en una ventana de anchos concreta (p.ej. x^{1000}…x^{9999}),
+   justo cuando ese bloque interno desbordaba su propia caja por unos píxeles.
+   El scroll horizontal de la fórmula lo gestiona el contenedor del plugin
+   (overflow controlado por JS + fades + rueda), así que anulamos por completo
+   el overflow propio de Obsidian/MathJax: dejamos que el contenido fluya hasta
+   el contenedor del plugin, que será el único (y sólo si desborda de verdad) en
+   mostrar su barra fina.
+
+   Especificidad: en Live Preview, Obsidian scrollea el mjx-container con
+   `.markdown-source-view.mod-cm6 .math-block > mjx-container` (app.css) →
+   especificidad (0,3,1) = 3 clases + el tipo `mjx-container`. La neutralización
+   con solo `.lmath-container .lmath-latex .MathJax` (0,3,0) EMPATABA en clases
+   pero perdía por ese tipo extra, y la barra nativa reaparecía en fórmulas
+   anchas (p.ej. la tupla paramétrica). Para ganarle SIN `!important` (dispara
+   css/no-important) y SIN usar `mjx-container` como selector de tipo (dispara
+   selector-type-no-unknown de stylelint), la línea del mjx-container lleva una
+   clase extra —`.math-block .MathJax` = (0,4,0), gana por conteo de clases 4>3—.
+   El resto del prefijo (2 clases) basta para las demás capas: Obsidian no les
+   fija overflow propio. */
+.lmath-container .lmath-latex .markdown-rendered,
+.lmath-container .lmath-latex p,
+.lmath-container .lmath-latex .math,
+.lmath-container .lmath-latex .math-block,
+.lmath-container .lmath-latex .katex-display,
+.lmath-container .lmath-latex .math-block .MathJax,
+.lmath-container .lmath-latex .MJX-TEX {
+  overflow: visible;
+  max-width: none;
+  margin: 0;
+}
+
+.lmath-grafica {
+  width: 50%;
+  height: 261px;
+  position: relative;
+  /* Superficie del PLANO. El lienzo ya no rellena su fondo (solo limpia), así que este
+     color es el que se ve tras la rejilla: el plano es del mismo material que la nota y
+     sigue al tema sin repintar. */
+  background-color: var(--lmath-superficie);
+  border-left: 1px solid var(--lmath-borde);
+  overflow: hidden;
+  box-sizing: border-box;
+  /* Fuente Lora SOLO para el texto de la interfaz del plugin (popovers, etiquetas,
+     botones): el plano aloja todos esos overlays DOM. Se acota aquí a propósito para
+     NO tocar el panel LaTeX (.lmath-latex, hermano) ni el resto de Obsidian. El
+     LaTeX de KaTeX conserva su propia fuente aunque estuviera dentro (fija font-family
+     en sus spans). La familia "Lora" la carga host-obsidian/fuentes.ts en runtime;
+     var(--font-interface) es el fallback mientras carga o si falla. */
+  font-family: "Lora", var(--font-interface);
+}
+
+.lmath-info {
+  display: none;
+}
+
+/* Las líneas de un cuadro ⓘ llevan su matemática entre `$…$` y las compone KaTeX a través de
+   `MarkdownRenderer`, que envuelve cada una en un `<p>` con los márgenes de párrafo de
+   Obsidian. `pintarLineaPanel` desenvuelve ese `<p>`, pero lo hace en el `.then()` del render,
+   y el cuadro se muestra ANTES de que esa promesa resuelva.
+
+   Sin esta regla, entre los dos momentos el usuario ve el cuadro con sus líneas separadas por
+   los márgenes: cinco líneas pasaban de ~96px a más de 200px, chocaban con el `max-height` del
+   popover y sacaban barra de desplazamiento. Al resolver los renders el cuadro encogía de
+   golpe. Con los márgenes a cero mide lo mismo en los dos estados y no hay salto.
+
+   Es la misma regla que ya tenía el panel LaTeX de la izquierda (`.lmath-latex p`, arriba),
+   que renderiza markdown desde mucho antes; los cuadros ⓘ solo empezaron a hacerlo al pasar
+   sus líneas a LaTeX, y se quedaron sin ella. El desenvoltorio del `<p>` sigue haciendo falta:
+   esto iguala la ALTURA, y aquello deja la línea en el flujo del cuadro como texto. */
+.lmath-container .lmath-info-pop p {
+  margin: 0;
+}
+
+.lmath-aviso {
+  width: 100%;
+  text-align: center;
+  font-size: 24px;
+}
+
+/* ── obs-vector: los nombres del plano ────────────────────────────────────────────────
+   Los rótulos del plano (`\vec{v}`, `A`, `\vec{AB}`) NO se pintan en el lienzo: pasan por
+   el mismo KaTeX que las tarjetas del panel, así que son DOM y necesitan una capa encima.
+   Con `fillText` lo único que se podía pedir era una cursiva del sistema, y al lado de su
+   propia tarjeta se notaba que no era la misma letra: sin la flecha del vector y con otra
+   tipografía.
+
+   La capa no intercepta el ratón —debajo vive el botón f(x)— y recorta lo que se salga,
+   igual que el lienzo hace con las flechas. */
+.lmath-rotulos {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Cada nombre se centra en el punto que le da el renderizador. Posición y color llegan como
+   propiedades desde el host porque dependen del encuadre y del tema, que aquí no se conocen;
+   el tamaño sí es fijo, y es el mismo que tenía el texto del lienzo. */
+.lmath-rotulo {
+  position: absolute;
+  left: var(--lmath-rotulo-x, 0);
+  top: var(--lmath-rotulo-y, 0);
+  transform: translate(-50%, -50%);
+  color: var(--lmath-rotulo-color, currentColor);
+  font-size: 12px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* ── obs-trig: lo que no depende de ningún número calculado ───────────────────────────
+   El bloque del círculo compone casi todo su cromo en el host, porque casi todo depende
+   de medidas que solo allí se conocen (el lado del chip, el ancho de la caja, la
+   posición de la manija). Lo que NO depende de nada vive aquí: es estilo fijo, y una
+   cadena en línea que nunca cambia solo consigue que el tema no la pueda alcanzar. */
+
+/* Deslizador del ángulo: una PÍLDORA con un disco corriendo por dentro.
+   Las tres medidas (alto de la caja, diámetro de la manija y su posición) llegan como
+   propiedades desde el host, que es quien hace la cuenta del recorrido; escribirlas aquí otra
+   vez daría dos verdades para la misma medida. El resto —forma, color, sombra— es fijo y por
+   eso vive aquí y no en una cadena en línea, que el tema no podría alcanzar. */
+.lmath-slider {
+  position: relative;
+  width: 100%;
+  height: var(--lmath-slider-alto);
+  flex: 0 0 auto;
+  /* El dedo sobre el deslizador lo mueve; sin esto el navegador se queda el gesto para
+     desplazar la nota y el mando no responde en el móvil, que es donde más falta hace.
+     Esta es solo la MITAD del remedio: los gestos propios de Obsidian (deslizar para abrir
+     la barra lateral) son código suyo y no los gobierna `touch-action`, así que el evento se
+     detiene además en la raíz del deslizador. Ver la nota larga en `ui/deslizador.ts`. */
+  touch-action: none;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+}
+
+/* La pista ocupa la caja entera. Va del color del borde y no del panel: sobre `--lmath-panel`,
+   que es el fondo que tiene detrás, una píldora del mismo tono no se vería. */
+.lmath-slider-pista {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: var(--lmath-borde);
+  pointer-events: none;
+}
+
+/* La manija es del color del TEXTO, no del acento: es la pieza que se agarra y tiene que
+   destacar sobre la pista en los dos temas (casi blanca en oscuro, casi negra en claro). */
+.lmath-slider-manija {
+  position: absolute;
+  top: 50%;
+  left: var(--lmath-slider-x, 0);
+  transform: translateY(-50%);
+  width: var(--lmath-slider-manija);
+  height: var(--lmath-slider-manija);
+  border-radius: 50%;
+  background: var(--lmath-texto);
+  box-shadow: var(--lmath-sombra);
+  pointer-events: none;
+}
+
+/* El anillo de foco va en `:focus-visible` y no en un listener de `focus`: el navegador
+   ya distingue el foco que deja el teclado del que deja un clic, y esa distinción es
+   justo la que hace falta — el anillo existe para quien navega sin ratón. */
+.lmath-slider:focus-visible {
+  outline: 2px solid var(--lmath-acento);
+  outline-offset: 3px;
+}
+
+/* Banda de LECTURA: se queda el alto sobrante entre la tarjeta y los controles.
+   `min-height: 0` es lo que la deja encoger dentro del flex en vez de desbordar. */
+.lmath-trig-lectura {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* Controles en reparto por COLUMNAS: al pie de la columna del panel. */
+.lmath-trig-controles {
+  margin-top: auto;
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+/* Los mismos controles en ESTRECHO: franja fija al pie del plano, siempre a la vista.
+   El alto llega como propiedad desde el host, que es quien lo reparte con el lienzo:
+   escribir aquí el número otra vez daría dos verdades para una sola medida. */
+.lmath-trig-controles-pie {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--lmath-trig-alto-controles);
+  box-sizing: border-box;
+  padding: 9px 12px;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  border-top: 1px solid var(--lmath-borde);
+  background: var(--lmath-superficie);
+}
+
+/* Fila de las tres casillas de componente (seno / coseno / tangente). */
+.lmath-trig-componentes {
+  display: flex;
+  gap: 5px;
+}
+
+/* Fila del valor: θ a la izquierda, el ángulo vivo a la derecha. */
+.lmath-trig-valor {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 11px;
+  line-height: 1.1;
+  color: var(--lmath-texto-tenue);
+}
+
+/* El número que gobierna todo lo demás. `tabular-nums` evita que las cifras cambien de
+   ancho mientras se arrastra, que es cuando más se mira. */
+.lmath-trig-valor-vivo {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--lmath-texto);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Una fila de la tabla de razones: nombre, forma exacta y decimal. */
+.lmath-trig-razon {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 2px 0;
+  font-size: 11.5px;
+}
+
+
+/* ── Vista de MANDOS del panel (parámetros declarados, `A = 1`) ───────────────────────────
+   Es una VISTA del panel, hermana de la fórmula, y se alterna con ella desde la barra de
+   arriba —igual que obs-vector alterna entre lo declarado y el vector deducido—. Por eso ocupa
+   la misma caja que las tarjetas (`inset:0`) en vez de repartirse el panel con ellas: el panel
+   enseña una cosa a la vez, y partirlo dejaría la fórmula a media altura para siempre.
+
+   El `padding-top` deja libre la barra de botones, que flota por encima. */
+.lmath-parametros {
+  position: absolute;
+  inset: 0;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  box-sizing: border-box;
+  padding: 40px 14px 14px;
+  overflow-y: auto;
+  /* Nunca a lo ancho: una fila que no cabe se estrecha (ver `.lmath-parametro .lmath-slider`),
+     no empuja una barra de scroll horizontal por debajo del panel. */
+  overflow-x: hidden;
+}
+
+/* Una fila: nombre, valor y mando. El nombre y el valor llevan ancho FIJO para que las manijas
+   de varios parámetros queden alineadas en columna; si cada fila midiera su propio rótulo, los
+   mandos saldrían escalonados y costaría compararlos. */
+.lmath-parametro {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+  /* Sin esto el nombre en KaTeX impone su ancho natural y la fila no puede encoger. */
+  min-width: 0;
+}
+
+/* El mando se queda LO QUE SOBRE de la fila, y puede encoger.
+   `.lmath-slider` viene de obs-trig, donde ocupa una columna entera y por eso pide `width:100%`
+   y `flex:0 0 auto`. Aquí comparte fila con el nombre y el valor: dejando ese ancho, la fila
+   medía el panel entero MÁS los dos rótulos y se salía por la derecha —con su barra de scroll
+   por debajo—. `min-width:0` es lo que permite encoger de verdad: sin él, el mínimo automático
+   del flex lo mantiene en su ancho de contenido. */
+.lmath-parametro .lmath-slider {
+  flex: 1 1 auto;
+  width: auto;
+  min-width: 0;
+}
+
+.lmath-parametro-nombre {
+  flex: 0 0 auto;
+  min-width: 16px;
+  font-size: 13px;
+  color: var(--lmath-texto);
+}
+
+/* `tabular-nums` por lo mismo que en obs-trig: el número cambia sesenta veces por segundo
+   mientras se arrastra, y sin cifras de ancho fijo la fila entera baila. */
+.lmath-parametro-valor {
+  flex: 0 0 38px;
+  text-align: right;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--lmath-texto);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ─────────────────────────────────────────────
+   TEMPORAL · Estilos del modal de migración (migracion/ModalMigracion.ts)
+   ─────────────────────────────────────────────
+
+   El código de la migración vive aparte, en `migracion/`, pero su CSS no puede: Obsidian solo carga
+   el `styles.css` de la raíz del plugin. Este bloque se borra ENTERO junto con la herramienta,
+   el día que los `obs-*` dejen de aceptarse; no hay nada más del producto que dependa de él.
+
+   Solo variables del tema de Obsidian: ni un literal de color. Un modal es marco, no plano, así
+   que aquí no entra `paleta.ts` (ver la regla de arquitectura de color del proyecto). */
+
+.lmath-mig p {
+  margin: 0.6em 0;
+}
+
+.lmath-mig-tabla {
+  width: auto;
+  margin: 0.8em 0;
+  border-collapse: collapse;
+  font-size: var(--font-ui-small);
+}
+
+.lmath-mig-tabla th,
+.lmath-mig-tabla td {
+  padding: 0.15em 0.9em 0.15em 0;
+  text-align: left;
+  border: none;
+}
+
+.lmath-mig-tabla th {
+  color: var(--text-muted);
+  font-weight: var(--font-normal);
+}
+
+.lmath-mig-flecha {
+  color: var(--text-faint);
+  padding-right: 0.6em;
+}
+
+.lmath-mig-nuevo {
+  color: var(--text-accent);
+}
+
+.lmath-mig-calma,
+.lmath-mig-estado {
+  color: var(--text-muted);
+  font-size: var(--font-ui-small);
+}
+
+.lmath-mig-resumen {
+  font-weight: var(--font-semibold);
+}
+
+/* La lista puede tener cientos de notas: se le pone techo y su propio scroll para que el modal
+   no crezca fuera de la pantalla y los botones sigan siendo alcanzables. */
+.lmath-mig-lista {
+  max-height: 14em;
+  overflow-y: auto;
+  margin: 0.5em 0 0.9em;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-s);
+  background: var(--background-secondary);
+}
+
+.lmath-mig-fila {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5em;
+  padding: 0.25em 0.7em;
+  font-size: var(--font-ui-small);
+}
+
+.lmath-mig-fila:not(:last-child) {
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.lmath-mig-ruta {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lmath-mig-cuenta {
+  flex: none;
+  color: var(--text-muted);
+}
+
+.lmath-mig-aviso {
+  color: var(--text-warning);
+  font-size: var(--font-ui-small);
+}
+
+.lmath-mig-botones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6em;
+  margin-top: 1.2em;
+}
