@@ -20,6 +20,7 @@ $$ \begin{align}
 $$\frac{1}{\frac{1}{x-1}}+1$$ Pour résoudre 
 $$\begin{align}
 \frac{A}{\frac{B}{C}}\\ \\
-\frac{A.C}{D} \\
+\frac{A.C}{B} \\
 \end{align}
 $$
+
