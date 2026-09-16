@@ -1,3 +1,12 @@
+---
+tags:
+  - Maths
+  - Fonctions
+  - Notes
+  - BTS
+Date: 08/09/2026 16:35
+Source: Lycée Diderot - Paul Léo
+---
 
 Une fonction affine est représenté sous la forme $f(x) = ax+b$ 
 
@@ -18,3 +27,5 @@ $$
 Exemple de Fonction affine en Physique
 $$F(x)=1,8x+32$$
 C'est la formule pour convertir les °C en °F
+
+

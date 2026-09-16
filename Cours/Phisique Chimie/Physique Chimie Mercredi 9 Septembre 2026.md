@@ -1,3 +1,14 @@
+---
+tags:
+  - Physique
+  - Notes
+  - BTS
+Date: 09/09/2026 11:46
+Source: Lycée Diderot - Paul Léo
+---
+
+
+
 $$\frac{1}{2}+\frac{1}{-3}+\frac{1}{5}$$
 $$\frac{15-10+6}{60} = \frac{11}{30}$$
 $$\frac{7}{x}=-\frac{4}{5}$$

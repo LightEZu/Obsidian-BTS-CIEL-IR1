@@ -1,5 +1,9 @@
 [
   "obsidian-latex-suite",
   "templater-obsidian",
-  "obsidian-git"
+  "obsidian-git",
+  "obsidian-charts",
+  "geogebra",
+  "lmath",
+  "obsidian-desmos"
 ]

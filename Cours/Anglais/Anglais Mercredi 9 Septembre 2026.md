@@ -1,3 +1,11 @@
+---
+tags:
+  - Anglais
+  - Cours
+  - BTS
+Date: 09/09/2026 11:46
+Source: Lycée Diderot - Paul Léo
+---
 
 News of the day :
 A regional election in Germany elect an extreme right part who has direct link with nazi, as we know is just the region in particular that has some extreme idea.
