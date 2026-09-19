@@ -1,6 +1,9 @@
 ---
 tags:
   - Maths
+  - Nombres_Complexes
+  - Cours
+  - BTS
 Date: 17/09/2026 10:30
 Source: Lycée Diderot - Paul Léo
 ---
