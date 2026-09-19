@@ -1,4 +1,9 @@
-
+---
+tags:
+  - Maths
+Date: 17/09/2026 10:30
+Source: Lycée Diderot - Paul Léo
+---
 # Les Définitions :
 
 Un nombre complexe s'écrit : $a+ib$ ou $a$ et $b$ sont de **Réels** 
