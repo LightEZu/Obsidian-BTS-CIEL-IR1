@@ -23,4 +23,3 @@ notebookcheck
 HPC = High Performance Computing
 
 CPU avec GPU intégré = APU 
-TEST NOUVEAU PC
