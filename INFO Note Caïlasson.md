@@ -23,3 +23,6 @@ notebookcheck
 HPC = High Performance Computing
 
 CPU avec GPU intégré = APU 
+
+Transfert de bus : 8GT/s 
+GT est pas vraiment une unité 
