@@ -16,3 +16,7 @@ Période de l'histoire
 2. L'antiquité : L'antiquité se fini a la chute de l'empire Romain 476
 3. Moyen Age : Se finit en 1492 date de la découverte de l'amérique par Colomb
 4. Temps Moderne : jusqu'aujourd'hui
+
+
+
+
