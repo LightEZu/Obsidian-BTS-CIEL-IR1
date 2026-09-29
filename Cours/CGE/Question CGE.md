@@ -6,4 +6,5 @@
 
 Correction 
 1) Ces 2 monuments incarnent chacun a leur époque un symbole du pouvoir : la Bastille représente un symbole du pouvoir royal/ l'arbitraire royal (possibilité d'emprisonner qlqn sans jugement) et l'Arc De Triomphe symbolise l'arrogance du pouvoir de Napoléon $1^\text{er}$ mais surtout les quartiers aisés ou sont installé les lieux de pouvoirs
-2) 
+2) Dans ce discours historique Charles de Gaulle assimile Paris a la France toute entière dans des formules hyperboliques, il personnifie la capitale et en fait l'incarnation du pays entier. Ce discours illustre la place que la capitale française occupe dans l'imaginaire collectif.
+3) Le Panthéon résume l'histoire de la République française après la Révolution (89) car les personnalités qui y sont enterré retrace les évolutions majeures de l'histoire du pays. exemple : XVIII Rousseau $\Rrightarrow$ Démocratie; XIX : V.Schocken $\Rrightarrow$ Abbolition de l'escalvage; XX Germaine Tillion $\Rrightarrow$ Résistance
