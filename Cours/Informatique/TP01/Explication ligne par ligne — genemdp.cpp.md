@@ -207,14 +207,6 @@ Termine la fonction `main` en renvoyant `0`, ce qui signifie conventionnellem
 
 ---
 
-## Points de vigilance
-
-- `cin >> alphabet` s'arrête au premier espace : un alphabet contenant un espace serait tronqué.
-- Le type choisi pour `nbCaracteres` est `int` (et non `unsigned short` comme suggéré par le cours) car un `unsigned` ne peut pas être négatif — nécessaire pour détecter et gérer un nombre négatif (test n°8 de la fiche de tests).
-- Si `alphabet` est vide, `alphabet.size()` vaut 0 et l'opération `i % alphabet.size()` provoquerait une erreur (division par zéro). Piste d'amélioration possible : ajouter `&& alphabet.size() > 0` dans la condition du `if`.
-
----
-
 ## Compiler et exécuter (Linux / WSL)
 
 ```bash
